@@ -62,7 +62,7 @@ const cardPost = document.querySelector('.post');
 
 cardPost.innerHTML = '';
 
-
+reloadLike()
 
 posts.forEach((post) => {
     cardPost.innerHTML += `<div class="post">
@@ -101,16 +101,19 @@ posts.forEach((post) => {
 
 const likeBtn = document.querySelectorAll('.like-button')
 
+// array for id post liked
 const myLike = []
 
 
+//  add event listner at all selector like-button
 likeBtn.forEach((button) => {
     button.addEventListener('click',function(){
         button.classList.add('like-button--liked')
         let id = this.getAttribute('data-postid')
         myLike.push(id)
         const likePlus = 1;
-        posts[id-1].likes += likePlus
+        function reloadLike() { return posts.likes = (posts[id-1].likes += likePlus)}
+        
         console.log(posts[id-1].likes);
     })
 });
