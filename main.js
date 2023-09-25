@@ -66,7 +66,7 @@ posts.forEach((post) => {
     <div class="post__header">
         <div class="post-meta">                    
             <div class="post-meta__icon">
-                <img class="profile-pic" src="${post.author.image}"  alt="${post.author.name}">                    
+                <img class="profile-pic" src="${imageNull(post.author.image)}"  alt="${post.author.name}">                    
             </div>
             <div class="post-meta__data">
                 <div class="post-meta__author">${post.author.name}</div>
@@ -111,9 +111,10 @@ function like(){
 }
 
 function imageNull(image){
-    if(image === 'null'){
-        image = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vectors%2Fanonymous-profile-pic-vectors&psig=AOvVaw24xPz0Su5_W7dlPE_Ca582&ust=1695732703722000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMiwrMXnxYEDFQAAAAAdAAAAABAE'
+    if(image === null){
+        image = 'https://cdn.vectorstock.com/i/preview-1x/26/39/profile-placeholder-image-gray-silhouette-vector-22122639.jpg'
     }
+    return image
 }
 
 // function postTime(data) {
