@@ -57,16 +57,10 @@ const posts = [
 ];
 
 const cardPost = document.querySelector('.post');
-const likeBtn = document.querySelector('.likes__cta')
+
 
 
 cardPost.innerHTML = '';
-
-
-
-posts[0].likes = 100
-console.log(posts[0]);
-
 
 
 
@@ -89,7 +83,7 @@ posts.forEach((post) => {
     </div>
     <div class="post__footer">
         <div class="likes js-likes">
-            <div id='${post.id}' class="likes__cta">
+            <div class="likes__cta">
                 <a class="like-button  js-like-button" href="#" data-postid="${post.id}">
                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                     <span class="like-button__label">Mi Piace</span>
@@ -101,17 +95,25 @@ posts.forEach((post) => {
         </div> 
     </div>            
 </div>
-
 </div>`
+
 })
 
+const likeBtn = document.querySelector('.like-button')
+
+const myLike = []
 
 // al click del like scritta diventa rossa e aggiungo al counter relativo + 1
 
 likeBtn.addEventListener('click',function(){
     this.classList.add('like-button--liked')
-    alert("Hello World!");
-})
+    let id = this.getAttribute('data-postid')
+    myLike.push(id)
+    console.log(id);
+});
+
+console.log(myLike);
+
 
 
 
