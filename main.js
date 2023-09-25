@@ -57,7 +57,7 @@ const posts = [
 ];
 
 const cardPost = document.querySelector('.post');
-
+const likeBtn = document.querySelector('.likes__cta')
 
 cardPost.innerHTML = '';
 
@@ -70,7 +70,7 @@ posts.forEach((post) => {
             </div>
             <div class="post-meta__data">
                 <div class="post-meta__author">${post.author.name}</div>
-                <div class="post-meta__time">${postTime(post.created)}</div>
+                <div class="post-meta__time"></div>
             </div>                    
         </div>
     </div>
@@ -81,7 +81,7 @@ posts.forEach((post) => {
     <div class="post__footer">
         <div class="likes js-likes">
             <div class="likes__cta">
-                <a class="like-button  js-like-button" href="#" data-postid="${post.id}">
+                <a class="like-button  js-like-button ${like}" href="#" data-postid="${post.id}">
                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                     <span class="like-button__label">Mi Piace</span>
                 </a>
@@ -94,17 +94,34 @@ posts.forEach((post) => {
 </div>
 
 </div>`
-console.log(post.author.image);
 })
 
 
+// al click del like scritta diventa rossa e aggiungo al counter relativo + 1
 
+likeBtn.addEventListener('click',like)
+    
+const myLike = []
 
-function postTime(data) {
-    let dataNow = new Date();
-    let dataPost = new Date(data)
-    const differenceMonth = (data.getFullYear() - dataNow.getFullYear()) * 12 + (data.getMonth() - oggi.getMonth());
-    return differenceMonth
+function like(){
+    this.likeBtn.classList.add('like-button--liked')
+    this.push(myLike)
+    
+    return like
 }
 
+function imageNull(image){
+    if(image === 'null'){
+        image = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vectors%2Fanonymous-profile-pic-vectors&psig=AOvVaw24xPz0Su5_W7dlPE_Ca582&ust=1695732703722000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMiwrMXnxYEDFQAAAAAdAAAAABAE'
+    }
+}
 
+// function postTime(data) {
+//     let dataNow = new Date();
+//     let dataPost = new Date(data)
+//     const differenceMonth = (data.getFullYear() - dataNow.getFullYear()) * 12 + (data.getMonth() - oggi.getMonth());
+//     return differenceMonth
+    
+// }
+
+// console.log(postTime('2021-09-03'));
