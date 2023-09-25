@@ -70,7 +70,7 @@ posts.forEach((post) => {
             </div>
             <div class="post-meta__data">
                 <div class="post-meta__author">${post.author.name}</div>
-                <div class="post-meta__time">4 mesi fa</div>
+                <div class="post-meta__time">${postTime(post.created)}</div>
             </div>                    
         </div>
     </div>
@@ -96,3 +96,15 @@ posts.forEach((post) => {
 </div>`
 console.log(post.author.image);
 })
+
+
+
+
+function postTime(data) {
+    let dataNow = new Date();
+    let dataPost = new Date(data)
+    const differenceMonth = (data.getFullYear() - dataNow.getFullYear()) * 12 + (data.getMonth() - oggi.getMonth());
+    return differenceMonth
+}
+
+
