@@ -98,30 +98,30 @@ posts.forEach((post) => {
 
 })
 
-const likeBtn = document.querySelectorAll('.like-button')
+
 
 // array for id post liked
 const myLike = []
 
 
 //  add event listner at all selector like-button
-likeBtn.forEach((button) => {
-    button.addEventListener('click',function(){
-        button.classList.add('like-button--liked')
-        let id = this.getAttribute('data-postid')
-        myLike.push(id)
-        const likePlus = 1;
-        posts.likes = (posts[id-1].likes += likePlus)
-        console.log(posts[id-1].likes);
+const like = document.querySelectorAll('.likes');
+like.forEach((button) => {
+    const myBlock = button.querySelector('.like-button');
+	myBlock.addEventListener('click', function(){
+	myBlock.classList.add('like-button--liked')
+    let id = myBlock.getAttribute('data-postid')
+    myLike.push(id)
+    button.querySelector('.js-likes-counter').innerHTML
+    button.querySelector('.js-likes-counter').innerHTML = (parseInt(button.querySelector('.js-likes-counter').innerHTML) + 1)
+    console.log(button.querySelector('.js-likes-counter').innerHTML)
     })
-});
+})
 
 
 
 
 console.log(myLike);
-
-
 
 
 function imageNull(image){
