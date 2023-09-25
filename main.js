@@ -118,14 +118,6 @@ likeBtn.forEach((button) => {
 
 
 
-
-
-
-
-function handleLike(){
-    
-}
-
 console.log(myLike);
 
 
