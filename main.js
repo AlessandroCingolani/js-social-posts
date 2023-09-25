@@ -109,12 +109,11 @@ const like = document.querySelectorAll('.likes');
 like.forEach((button) => {
     const myBlock = button.querySelector('.like-button');
 	myBlock.addEventListener('click', function(){
-	myBlock.classList.add('like-button--liked')
-    let id = myBlock.getAttribute('data-postid')
-    myLike.push(id)
-    button.querySelector('.js-likes-counter').innerHTML
-    button.querySelector('.js-likes-counter').innerHTML = (parseInt(button.querySelector('.js-likes-counter').innerHTML) + 1)
-    console.log(button.querySelector('.js-likes-counter').innerHTML)
+	myBlock.classList.add('like-button--liked');
+    let id = myBlock.getAttribute('data-postid');
+    myLike.push(id);
+    button.querySelector('.js-likes-counter').innerHTML = (parseInt(button.querySelector('.js-likes-counter').innerHTML) + 1);
+    console.log(button.querySelector('.js-likes-counter').innerHTML);
     })
 })
 
