@@ -137,7 +137,7 @@ function postTime(data) {
     let millPassed = dataNow - dataPost
     let monthPassed = millPassed / (1000 * 60 * 60 * 24 * 30);
     monthPassed = Math.round(monthPassed);
-    console.log("Sono passati " + monthPassed + " mesi.");
+    return(monthPassed + " mesi fa");
 }
 
 
