@@ -99,18 +99,32 @@ posts.forEach((post) => {
 
 })
 
-const likeBtn = document.querySelector('.like-button')
+const likeBtn = document.querySelectorAll('.like-button')
 
 const myLike = []
 
-// al click del like scritta diventa rossa e aggiungo al counter relativo + 1
 
-likeBtn.addEventListener('click',function(){
-    this.classList.add('like-button--liked')
-    let id = this.getAttribute('data-postid')
-    myLike.push(id)
-    console.log(id);
+likeBtn.forEach((button) => {
+    button.addEventListener('click',function(){
+        button.classList.add('like-button--liked')
+        let id = this.getAttribute('data-postid')
+        myLike.push(id)
+        const likePlus = 1;
+        posts[id-1].likes += likePlus
+        console.log(posts[id-1].likes);
+    })
 });
+
+
+
+
+
+
+
+
+function handleLike(){
+    
+}
 
 console.log(myLike);
 
