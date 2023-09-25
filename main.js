@@ -62,7 +62,6 @@ const cardPost = document.querySelector('.post');
 
 cardPost.innerHTML = '';
 
-reloadLike()
 
 posts.forEach((post) => {
     cardPost.innerHTML += `<div class="post">
@@ -73,7 +72,7 @@ posts.forEach((post) => {
             </div>
             <div class="post-meta__data">
                 <div class="post-meta__author">${post.author.name}</div>
-                <div class="post-meta__time"></div>
+                <div class="post-meta__time">${postTime(post.created)}</div>
             </div>                    
         </div>
     </div>
@@ -112,8 +111,7 @@ likeBtn.forEach((button) => {
         let id = this.getAttribute('data-postid')
         myLike.push(id)
         const likePlus = 1;
-        function reloadLike() { return posts.likes = (posts[id-1].likes += likePlus)}
-        
+        posts.likes = (posts[id-1].likes += likePlus)
         console.log(posts[id-1].likes);
     })
 });
@@ -133,12 +131,13 @@ function imageNull(image){
     return image
 }
 
-// function postTime(data) {
-//     let dataNow = new Date();
-//     let dataPost = new Date(data)
-//     const differenceMonth = (data.getFullYear() - dataNow.getFullYear()) * 12 + (data.getMonth() - oggi.getMonth());
-//     return differenceMonth
-    
-// }
+function postTime(data) {
+    let dataNow = new Date();
+    let dataPost = new Date(data)
+    let millPassed = dataNow - dataPost
+    let monthPassed = millPassed / (1000 * 60 * 60 * 24 * 30);
+    monthPassed = Math.round(monthPassed);
+    console.log("Sono passati " + monthPassed + " mesi.");
+}
 
-// console.log(postTime('2021-09-03'));
+
